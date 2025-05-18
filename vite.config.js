@@ -1,10 +1,18 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
-
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
 	base: "/",
-	plugins: [tailwindcss(), react()],
+	plugins: [
+		tailwindcss(),
+		react({
+			include: "**/*.{jsx,tsx}", // explicitly include JSX files
+		}),
+	],
+	server: {
+		headers: {
+			"Content-Type": "application/javascript", // ensure correct MIME type
+		},
+	},
 });

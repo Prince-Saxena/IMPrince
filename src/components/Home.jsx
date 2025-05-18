@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
-import Hero from "./Hero";
-import About from "./About";
-import Experience from "./Experience";
-import Skills from "./Skills";
-import Footer from "./Footer";
-import Projects from "./Projects";
-import Certificate from "./Certificate";
-import Contact from "./Contact";
-import AIMLJourney from "./AIMLJourney";
-import Blogs from "./Blogs";
-// import Vertical from "./Vertical";
-// import Background from "./Background";
+import Hero from "./Hero.jsx";
+import About from "./About.jsx";
+import Skills from "./Skills.jsx";
+import Footer from "./Footer.jsx";
+import Projects from "./Projects.jsx";
+import Certificate from "./Certificate.jsx";
+import Contact from "./Contact.jsx";
+import AIMLJourney from "./AIMLJourney.jsx";
+import Blogs from "./Blogs.jsx";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

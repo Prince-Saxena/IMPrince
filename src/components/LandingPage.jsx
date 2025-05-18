@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Nav from "./Nav";
-import Home from "./Home";
+import Nav from "./Nav.jsx";
+import Home from "./Home.jsx";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);

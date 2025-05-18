@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./ProjectCard.jsx";
 import gsap from "gsap";
 import { useEffect } from "react";
 

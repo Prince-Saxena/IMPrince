@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/LandingPage.jsx";
 import gsap from "gsap";
 
 function App() {
