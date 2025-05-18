@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const image = "/pro.png";
+const image = "./pro.png";
 
 function About({ layout = "center" }) {
 	const headingRef = useRef(null);
@@ -75,11 +75,7 @@ function About({ layout = "center" }) {
 	}, []);
 
 	return (
-		<section
-			id="aboutPage"
-			className="relative min-h-screen text-white overflow-hidden"
-			
-		>
+		<section id="aboutPage" className="relative min-h-screen text-white overflow-hidden">
 			{/* Animated Gradient Background */}
 			{/* <div className="absolute inset-0 overflow-hidden">
 				<div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-cyan-900 opacity-80"></div>
@@ -181,11 +177,13 @@ function About({ layout = "center" }) {
 								/>
 							</svg>
 						</button>
-						<button
-							onClick={(e) => handleScroll(e, "contact")}
+						<a
+							href="./resume.pdf"
+							target="_blank"
+							rel="noreferrer"
 							className="px-6 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg hover:bg-cyan-400/10 transition-all duration-300 hover:scale-105 flex items-center group"
 						>
-							<span>Contact Me</span>
+							<span>My Resume</span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
@@ -198,7 +196,7 @@ function About({ layout = "center" }) {
 									clipRule="evenodd"
 								/>
 							</svg>
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>

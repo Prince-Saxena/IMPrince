@@ -3,60 +3,58 @@
 @import "@fontsource/orbitron/500.css";
 @import "@fontsource/orbitron/700.css";
 
-
 @font-face {
-  font-family: 'cyberbrush';
-  src: url('./assets/cyberbrush.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+	font-family: "cyberbrush";
+	src: url("./assets/cyberbrush.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 @font-face {
-  font-family: 'MagnoliaBold';
-  src: url('./assets/MagnoliaBold.otf') format('truetype');
+	font-family: "MagnoliaBold";
+	src: url("./assets/MagnoliaBold.otf") format("truetype");
 }
 @font-face {
-  font-family: 'MagnoliaRegular';
-  src: url('./assets/MagnoliaRegular.otf') format('truetype');
+	font-family: "MagnoliaRegular";
+	src: url("./assets/MagnoliaRegular.otf") format("truetype");
 }
 @font-face {
-  font-family: 'MagnoliaMedium';
-  src: url('./assets/MagnoliaMedium.otf') format('truetype');
+	font-family: "MagnoliaMedium";
+	src: url("./assets/MagnoliaMedium.otf") format("truetype");
 }
 
 .font-mognolia-bold {
-  font-family: "MagnoliaBold";
+	font-family: "MagnoliaBold";
 }
 
 .font-mognolia-regular {
-  font-family: "MagnoliaRegular";
+	font-family: "MagnoliaRegular";
 }
 
 .font-mognolia-medium {
-  font-family: "MagnoliaMedium";
+	font-family: "MagnoliaMedium";
 }
 
-
 .font-cyberbrush {
-  font-family: 'cyberbrush', sans-serif;
+	font-family: "cyberbrush", sans-serif;
 }
 .font-orbitron {
 	font-family: "Orbitron", sans-serif;
 }
 .font-orbitron-400 {
 	font-family: "Orbitron", sans-serif;
-  font-weight: 400;
+	font-weight: 400;
 }
 
 .font-poiret {
 	font-family: "Poiret One", sans-serif;
 }
 .font-inter {
-	font-family: "Inter", sans-serif; 
+	font-family: "Inter", sans-serif;
 }
 
-h2{
+h2 {
 	font-family: "Orbitron", sans-serif;
-  letter-spacing: 0.1rem;
+	letter-spacing: 0.1rem;
 }
 
 ::-webkit-scrollbar {
@@ -69,8 +67,5 @@ h2{
 body {
 	margin: 0;
 	padding: 0;
-  background-color: black;
+	background-color: black;
 }
-
-
-

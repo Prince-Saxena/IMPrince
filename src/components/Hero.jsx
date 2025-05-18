@@ -77,7 +77,7 @@ function Hero() {
 							{/* Image Container */}
 							<div className="relative w-full h-full rounded-full border-2 border-[#7df9ff]/50 group-hover:border-[#7df9ff] overflow-hidden transition-all duration-500 shadow-[0_0_30px_rgba(125,249,255,0.2)]">
 								<img
-									src="/DP6.png"
+									src="./DP6.png"
 									alt="Profile"
 									className="w-full h-full group-hover:scale-105 object-cover transition-transform duration-500"
 									loading="lazy"

@@ -7,25 +7,25 @@ gsap.registerPlugin(ScrollTrigger);
 const skillsData = [
 	{
 		title: "MongoDB",
-		image: "/mongodb.png",
+		image: "./mongodb.png",
 		desc: "MongoDB is a NoSQL database that I use for building scalable and flexible backend systems.",
 		tags: ["Schema Design", "CRUD Operations", "Aggregation Pipelines"],
 	},
 	{
 		title: "Express.js",
-		image: "/expres.png",
+		image: "./expres.png",
 		desc: "Express.js is my go-to framework for building RESTful APIs and backend services.",
 		tags: ["Middleware", "Routing", "Error Handling"],
 	},
 	{
 		title: "React.js",
-		image: "/react.png",
+		image: "./react.png",
 		desc: "React.js is my primary tool for building dynamic and responsive user interfaces.",
 		tags: ["Hooks", "Context API", "Component Architecture"],
 	},
 	{
 		title: "Node.js",
-		image: "/nodejs.png",
+		image: "./nodejs.png",
 		desc: "Node.js powers my backend development, enabling me to build scalable and efficient server-side applications.",
 		tags: ["Event-Driven", "REST APIs", "File System"],
 	},

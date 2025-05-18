@@ -24,7 +24,7 @@ const Projects = () => {
 	const projects = [
 		{
 			title: "Resume Builder (ResumeIQ)",
-			img: "/ResumeIQ.png",
+			img: "./ResumeIQ.png",
 			desc: (
 				<>
 					A resume builder that helps users create professional resumes quickly with
@@ -42,7 +42,7 @@ const Projects = () => {
 		},
 		{
 			title: "AI Code Reviewer (Gemini)",
-			img: "/AICodeReviewer.png",
+			img: "./AICodeReviewer.png",
 			desc: (
 				<>
 					An AI-powered code review tool that improves code quality by suggesting changes.
@@ -59,7 +59,7 @@ const Projects = () => {
 		},
 		{
 			title: "Portfolio Website",
-			img: "/portfolio.png",
+			img: "./portfolio.png",
 			desc: (
 				<>
 					A personal portfolio website showcasing projects and skills with smooth
