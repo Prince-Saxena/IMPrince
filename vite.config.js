@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-	base: "/",
+	base: process.env.NODE_ENV === "production" ? "/REPO_NAME/" : "/",
 	plugins: [
 		tailwindcss(),
 		react({
