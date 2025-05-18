@@ -15,4 +15,13 @@ export default defineConfig({
 			"Content-Type": "application/javascript", // ensure correct MIME type
 		},
 	},
+	middleware: {
+		// This is a hypothetical example; actual implementation may vary
+		jsx: (req, res, next) => {
+			if (req.url.endsWith(".jsx")) {
+				res.setHeader("Content-Type", "application/javascript");
+			}
+			next();
+		},
+	},
 });
