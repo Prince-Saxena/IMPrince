@@ -5,6 +5,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-	base: "/Prince-Saxena.github.io/",
+	base: "/",
 	plugins: [tailwindcss(), react()],
 });
