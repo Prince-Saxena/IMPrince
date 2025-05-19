@@ -2,7 +2,7 @@
 	"name": "prince-saxena",
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://prince-saxena.github.io/",
+	"homepage": "https://prince-saxena.github.io",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
