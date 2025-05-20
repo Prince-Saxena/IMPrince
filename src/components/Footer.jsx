@@ -5,9 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
-
 	const handleScroll = (e, targetId) => {
 		e.preventDefault();
+		if (targetId === "#aboutmaPage") {
+			targetId = "aboutPage";
+		}
 		document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
 	};
 
