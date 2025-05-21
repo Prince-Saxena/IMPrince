@@ -10,6 +10,11 @@ function Hero() {
 	const [charIndex, setCharIndex] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
 
+	const handleScroll = (e, targetId) => {
+		e.preventDefault();
+		document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+	};
+
 	useEffect(() => {
 		const typingSpeed = isDeleting ? 100 : 130;
 		const nextText = texts[index % texts.length];
@@ -35,33 +40,33 @@ function Hero() {
 	}, [charIndex, isDeleting, index]);
 
 	return (
-		<section className="relative min-h-screen font-magnolia-bold" id="homePage">
-			{/* Content with higher z-index */}
-			<div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-20 py-12 md:py-0">
-				<div className="flex flex-col md:flex-row items-center justify-around min-h-[calc(100vh-96px)] md:min-h-screen">
-					{/* Left Content */}
-					<div className="order-2 md:order-1 flex-1 flex items-center text-center md:text-left mt-8 md:mt-0">
+		<section className="relative font-magnolia-bold" id="homePage">
+			<div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-20 py-8 md:py-0">
+				<div className="flex flex-col md:flex-row items-center justify-center min-h-[75vh] md:min-h-screen">
+					{/* Left Content - made full width on mobile */}
+					<div className="order-2 md:order-1 w-full lg:w-2/3 flex items-center text-center md:text-left md:mt-0">
 						<div className="w-full">
-							<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-								<span className="text-[#b3b3ff] block text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4">
+							<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+								<span className="text-[#b3b3ff] block text-left text-3xl sm:text-4xl lg:text-5xl mb-1 md:mb-3">
 									Hi, I'm
 								</span>
-								<span className="text-[#7df9ff] font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl transition-all duration-500 block font-orbitron-400 drop-shadow-[0_0_8px_rgba(125,249,255,0.4)]">
+								<span className="text-[#7df9ff] font-bold text-2xl sm:text-3xl md:text-5xl lg:text-7xl  text-left transition-all duration-500 block font-orbitron-400 drop-shadow-[0_0_8px_rgba(125,249,255,0.4)]">
 									{displayedText}
-									<span className="text-[#7df9ff] animate-blink text-4xl sm:text-5xl md:text-6xl">
+									<span className="text-[#7df9ff] animate-blink text-2xl sm:text-3xl md:text-5xl lg:text-7xl">
 										|
 									</span>
 								</span>
 							</h1>
 
-							<p className="mt-6 sm:mt-8 md:mt-12 text-base sm:text-lg md:text-xl lg:text-2xl text-[#e0e0ff] max-w-2xl mx-auto md:mx-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+							<p className="mt-4 sm:mt-6 mb-6 md:mb-0 md:mt-8 text-left text-sm sm:text-lg md:text-xl lg:text-2xl text-[#e0e0ff] max-w-2xl mx-auto md:mx-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
 								Building modern and responsive web applications with creativity and
 								passion.
 							</p>
-							<div className="mt-6 sm:mt-8 md:mt-10">
+							<div className="mt-4 sm:mt-6 md:mt-8">
 								<a
-									href="#contact"
-									className="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-[#4af2fd] to-[#3388ff] hover:from-[#5afcff] hover:to-[#4498ff] text-[#111] font-semibold rounded-lg transition-all duration-300 font-orbitron text-sm sm:text-base shadow-lg hover:shadow-[0_0_20px_rgba(74,242,253,0.5)]"
+									href="#contactPage"
+									onClick={(e) => handleScroll(e, `contactPage`)}
+									className="inline-block w-full md:w-fit px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#4af2fd] to-[#3388ff] hover:from-[#5afcff] hover:to-[#4498ff] text-[#111] font-semibold rounded-lg transition-all duration-300 font-orbitron text-xs sm:text-sm shadow-lg hover:shadow-[0_0_20px_rgba(74,242,253,0.5)]"
 								>
 									Get In Touch
 								</a>
@@ -69,12 +74,10 @@ function Hero() {
 						</div>
 					</div>
 
-					{/* Right Content - Profile Image */}
-					<div className="order-1 md:order-2 flex-1 flex justify-center md:justify-end items-center w-full max-w-xs sm:max-w-sm mx-auto md:mx-0">
-						<div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 group">
-							{/* Decorative Ring */}
+					{/* Right Content - Profile Image - made smaller on mobile */}
+					<div className="order-1 md:order-2 w-full lg:w-1/3 flex justify-center md:justify-end items-center mb-6 md:mb-0">
+						<div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 group">
 							<div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#4af2fd]/30 to-[#3388ff]/30 blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-							{/* Image Container */}
 							<div className="relative w-full h-full rounded-full border-2 border-[#7df9ff]/50 group-hover:border-[#7df9ff] overflow-hidden transition-all duration-500 shadow-[0_0_30px_rgba(125,249,255,0.2)]">
 								<img
 									src="./DP6.png"
@@ -83,9 +86,8 @@ function Hero() {
 									loading="lazy"
 								/>
 							</div>
-							{/* Decorative Elements */}
-							<div className="absolute -top-4 -right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-r from-[#4af2fd]/20 to-[#3388ff]/20 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-							<div className="absolute -bottom-4 -left-4 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-[#3388ff]/20 to-[#4a00e0]/20 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+							<div className="absolute -top-3 -right-3 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-[#4af2fd]/20 to-[#3388ff]/20 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+							<div className="absolute -bottom-3 -left-3 w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-[#3388ff]/20 to-[#4a00e0]/20 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
 						</div>
 					</div>
 				</div>

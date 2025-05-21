@@ -76,7 +76,7 @@ function App() {
 		<>
 			{!isActive && (
 				<div
-					className="h-screen w-full flex justify-center items-center relative overflow-hidden rbox px-4"
+					className="full-screen-fix w-full flex justify-center items-center relative overflow-hidden rbox px-4"
 					style={{
 						backgroundImage: `linear-gradient(to bottom right, #338, #000000, #111, #458)`,
 					}}

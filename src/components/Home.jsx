@@ -39,7 +39,6 @@ function Home() {
 				<Contact />
 				<Footer />
 			</div>
-			{/* <Background></Background> */}
 		</>
 	);
 }

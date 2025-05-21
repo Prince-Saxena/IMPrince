@@ -70,7 +70,7 @@ function LandingPage() {
 
 	return (
 		<div
-			className="main"
+			className="main full-screen-fix"
 			ref={mainRef}
 			id="main"
 			style={{

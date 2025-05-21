@@ -103,7 +103,7 @@ function About({ layout = "center" }) {
 			</div>
 
 			{/* Content Container */}
-			<div className="relative max-w-7xl mx-auto px-6 sm:px-8 py-24 md:py-32 h-full flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
+			<div className="relative max-w-7xl mx-auto px-6 sm:px-8 py-8 md:py-12 h-full flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
 				{/* Image */}
 				<div
 					ref={imgRef}

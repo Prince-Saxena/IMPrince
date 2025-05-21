@@ -53,44 +53,79 @@ const certifications = [
 	},
 ];
 
-
 const Certificate = () => {
 	const secRef = useRef(null);
 
 	useEffect(() => {
-		gsap.fromTo(
-			secRef.current,
-			{ opacity: 0, y: 80 },
-			{
-				opacity: 1,
-				y: 0,
-				duration: 1,
-				ease: "power3.out",
-				scrollTrigger: {
-					trigger: secRef.current,
-					start: "top 85%",
-					end: "top 50%",
-					scrub: 1,
-				},
-			}
-		);
+		if (window.innerWidth > 640) {
+			gsap.fromTo(
+				secRef.current,
+				{ opacity: 0, y: 80 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 1,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: secRef.current,
+						start: "top 85%",
+						end: "top 50%",
+						scrub: 1,
+					},
+				}
+			);
 
-		gsap.fromTo(
-			".cert-card",
-			{ opacity: 0, y: 50 },
-			{
-				opacity: 1,
-				y: 0,
-				stagger: 0.1,
-				duration: 0.8,
-				ease: "power2.out",
-				scrollTrigger: {
-					trigger: ".cert-container",
-					start: "top 75%",
-					toggleActions: "play none none none",
-				},
-			}
-		);
+			gsap.fromTo(
+				".cert-card",
+				{ opacity: 0, y: 50 },
+				{
+					opacity: 1,
+					y: 0,
+					stagger: 0.1,
+					duration: 0.8,
+					ease: "power2.out",
+					scrollTrigger: {
+						trigger: ".cert-container",
+						start: "top 75%",
+						toggleActions: "play none none none",
+					},
+				}
+			);
+		} else {
+			gsap.fromTo(
+				secRef.current,
+				{ opacity: 0, y: 80 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 1,
+					ease: "power3.out",
+					scrollTrigger: {
+						trigger: secRef.current,
+						start: "top 85%",
+						end: "top 50%",
+						scrub: 1,
+					},
+				}
+			);
+
+			gsap.fromTo(
+				".cert-card",
+				{ opacity: 0, x: 200 },
+				{
+					opacity: 1,
+					x: 0,
+					stagger: 0.1,
+					// duration: 0.8,
+					scrollTrigger: {
+						trigger: secRef.current,
+						start: "top 85%",
+						end: "top 65%",
+						scrub: 1,
+					},
+				}
+			);
+		}
 	}, []);
 
 	return (
@@ -99,7 +134,7 @@ const Certificate = () => {
 				<h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-cyan-400 mb-8 md:mb-12 text-center">
 					Verified & Certified
 				</h2>
-				
+
 				<div className="cert-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 					{certifications.map((cert, i) => (
 						<div
