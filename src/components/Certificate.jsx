@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const certifications = [
 	{
@@ -57,139 +58,112 @@ const Certificate = () => {
 	const secRef = useRef(null);
 
 	useEffect(() => {
-		if (window.innerWidth > 640) {
-			gsap.fromTo(
-				secRef.current,
-				{ opacity: 0, y: 80 },
-				{
-					opacity: 1,
-					y: 0,
-					duration: 1,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: secRef.current,
-						start: "top 85%",
-						end: "top 50%",
-						scrub: 1,
-					},
-				}
-			);
-
-			gsap.fromTo(
-				".cert-card",
-				{ opacity: 0, y: 50 },
-				{
-					opacity: 1,
-					y: 0,
-					stagger: 0.1,
-					duration: 0.8,
-					ease: "power2.out",
-					scrollTrigger: {
-						trigger: ".cert-container",
-						start: "top 75%",
-						toggleActions: "play none none none",
-					},
-				}
-			);
-		} else {
-			gsap.fromTo(
-				secRef.current,
-				{ opacity: 0, y: 80 },
-				{
-					opacity: 1,
-					y: 0,
-					duration: 1,
-					ease: "power3.out",
-					scrollTrigger: {
-						trigger: secRef.current,
-						start: "top 85%",
-						end: "top 50%",
-						scrub: 1,
-					},
-				}
-			);
-
-			gsap.fromTo(
-				".cert-card",
-				{ opacity: 0, x: 200 },
-				{
-					opacity: 1,
-					x: 0,
-					stagger: 0.1,
-					// duration: 0.8,
-					scrollTrigger: {
-						trigger: secRef.current,
-						start: "top 85%",
-						end: "top 65%",
-						scrub: 1,
-					},
-				}
-			);
-		}
+		// ... (keep your existing GSAP animations)
 	}, []);
 
 	return (
-		<section className="py-12 px-4 sm:px-6 lg:px-8  text-white" ref={secRef}>
+		<section
+			className="py-12 px-4 sm:px-6 lg:px-8 text-white"
+			ref={secRef}
+			id="certifications"
+		>
 			<div className="max-w-7xl mx-auto">
-				<h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-cyan-400 mb-8 md:mb-12 text-center">
-					Verified & Certified
-				</h2>
+				{/* Section Header */}
+				<div className="flex justify-center my-8 lg:my-12">
+					<div className="flex items-center">
+						<span className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent"></span>
+						<span className="bg-[#0d1224] border border-[#16f2b3]/50 w-fit text-white p-2 px-6 font-mono text-xl md:text-2xl rounded-md mx-4">
+							Certifications
+						</span>
+						<span className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent"></span>
+					</div>
+				</div>
 
-				<div className="cert-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+				{/* Certificates Grid */}
+				<div className="cert-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{certifications.map((cert, i) => (
-						<div
-							className="cert-card flex items-stretch transition-transform duration-300 hover:scale-[1.02]"
-							key={i}
-						>
-							<div className="w-full bg-[#121212] border border-cyan-500/50 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 p-4 sm:p-5 flex flex-col">
-								<div className="flex-grow">
-									<h3 className="text-base sm:text-lg font-semibold text-cyan-300">
-										{cert.issuer}
-									</h3>
-									<div className="flex justify-between items-center mt-1 sm:mt-2">
-										<h4 className="text-sm sm:text-base md:text-lg text-cyan-100">
+						<div className="cert-card group relative" key={i}>
+							<div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500/30 to-violet-600/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+							<div className="relative h-full bg-[#0a0d37]/70 backdrop-blur-sm border border-[#1b2c68]/50 rounded-xl p-6 transition-all duration-300 group-hover:border-[#16f2b3]/30 hover:shadow-[0_0_15px_-3px_rgba(22,242,179,0.2)]">
+								<div className="flex flex-col h-full">
+									<div className="flex-grow">
+										<h3 className="text-lg font-semibold text-[#16f2b3] mb-1">
 											{cert.title}
-										</h4>
-										<p className="text-xs sm:text-sm text-gray-400 ml-2 whitespace-nowrap">
-											{cert.date}
+										</h3>
+										<div className="flex justify-between items-center mb-3">
+											<p className="text-sm text-pink-400/80">
+												{cert.issuer}
+											</p>
+											<p className="text-xs text-gray-400/80">{cert.date}</p>
+										</div>
+										<p className="text-sm text-gray-300/90 mb-4">
+											{cert.description}
 										</p>
 									</div>
-									<p className="text-xs sm:text-sm text-gray-300 mt-2 sm:mt-3">
-										{cert.description}
-									</p>
-								</div>
 
-								{cert.link && (
-									<a
-										href={cert.link}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="inline-block mt-3 sm:mt-4 text-xs sm:text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
-										aria-label={`View ${cert.title} certificate`}
-									>
-										<span className="flex items-center">
-											View Certificate
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												className="h-4 w-4 ml-1"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-												/>
-											</svg>
-										</span>
-									</a>
-								)}
+									{cert.link && (
+										<a
+											href={cert.link}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="inline-flex items-center text-xs text-pink-400/80 hover:text-pink-300 transition-colors duration-200 mt-auto group/link"
+										>
+											<span className="group-hover/link:underline">
+												View Credential
+											</span>
+											<FaExternalLinkAlt className="ml-2 text-[0.7rem]" />
+										</a>
+									)}
+								</div>
 							</div>
 						</div>
 					))}
 				</div>
+
+				{/* Experience Cards */}
+				{/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+					{[
+						{
+							role: "Data Analyst Intern",
+							company: "Dynapt Solutions Private Ltd.",
+							period: "Apr 2024 - Oct 2024",
+						},
+						{
+							role: "Data Analyst Intern",
+							company: "Edulyt - India's Leading Education Management Firm",
+							period: "Jun 2023 - Jul 2023",
+						},
+					].map((exp, i) => (
+						<div
+							key={i}
+							className="relative bg-[#0a0d37]/70 backdrop-blur-sm border border-[#1b2c68]/50 rounded-xl p-6 hover:shadow-[0_0_15px_-3px_rgba(22,242,179,0.2)] transition-shadow duration-300"
+						>
+							<div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-pink-500/50 to-transparent"></div>
+							<div className="flex items-center gap-6">
+								<div className="text-pink-500/80">
+									<svg
+										stroke="currentColor"
+										fill="currentColor"
+										strokeWidth="0"
+										viewBox="0 0 24 24"
+										height="36"
+										width="36"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path>
+									</svg>
+								</div>
+								<div>
+									<p className="text-[#16f2b3] text-lg font-medium mb-1">
+										{exp.role}
+									</p>
+									<p className="text-sm text-gray-300/90">{exp.company}</p>
+									<p className="text-xs text-pink-400/80 mt-1">{exp.period}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div> */}
 			</div>
 		</section>
 	);

@@ -1,129 +1,159 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const skillsData = [
-	{
-		title: "MongoDB",
-		image: "./mongodb.png",
-		desc: "MongoDB is a NoSQL database that I use for building scalable and flexible backend systems.",
-		tags: ["Schema Design", "CRUD Operations", "Aggregation Pipelines"],
-	},
-	{
-		title: "Express.js",
-		image: "./expres.png",
-		desc: "Express.js is my go-to framework for building RESTful APIs and backend services.",
-		tags: ["Middleware", "Routing", "Error Handling"],
-	},
-	{
-		title: "React.js",
-		image: "./react.png",
-		desc: "React.js is my primary tool for building dynamic and responsive user interfaces.",
-		tags: ["Hooks", "Context API", "Component Architecture"],
-	},
-	{
-		title: "Node.js",
-		image: "./nodejs.png",
-		desc: "Node.js powers my backend development, enabling me to build scalable and efficient server-side applications.",
-		tags: ["Event-Driven", "REST APIs", "File System"],
-	},
-];
-
-
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 const Skills = () => {
-	const skillRef = useRef(null);
+	const skills = [
+		{ name: "Excel", icon: "excel.svg" },
+		{ name: "SQL", icon: "mysql.svg" },
+		{ name: "Python", icon: "python.svg" },
+		{ name: "Pandas", icon: "pandas.svg" },
+		{ name: "NumPy", icon: "numpy.svg" },
+		{ name: "Matplotlib", icon: "matplotlib.svg" },
+		{ name: "Seaborn", icon: "seaborn.svg" },
+		{ name: "Power BI", icon: "powerbi.svg" },
+		{ name: "Jupyter", icon: "jupyter.svg" },
+		{ name: "SkLearn", icon: "scikit-learn.svg" },
+		{ name: "Streamlit", icon: "streamlit.svg" },
+		{ name: "Git", icon: "git.svg" },
+		{ name: "VS", icon: "vscode.svg" },
+		{ name: "MongoDB", icon: "mongoDB.svg" },
+		{ name: "TensorFlow", icon: "tensorflow.svg" },
+		{ name: "JavaScript", icon: "javascript.svg" },
+		{ name: "React", icon: "react.svg" },
+		{ name: "Java", icon: "java.svg" },
+	];
+
+	const marqueeRef = useRef(null);
+	const controls = useAnimation();
+	const [isHovered, setIsHovered] = useState(false);
+	const [position, setPosition] = useState(0);
+	const speed = 100; // px per second
 
 	useEffect(() => {
-		gsap.fromTo(
-			skillRef.current,
-			{ opacity: 0, y: 80 },
-			{
-				opacity: 1,
-				y: 0,
-				duration: 1,
-				ease: "power3.out",
-				scrollTrigger: {
-					trigger: skillRef.current,
-					start: "top 75%",
-					end: "top 50%",
-					scrub: 1,
-				},
-			}
+		const marquee = marqueeRef.current;
+		if (!marquee) return;
+
+		const totalWidth = Array.from(marquee.children).reduce(
+			(acc, child) => acc + child.offsetWidth,
+			0
 		);
 
-		gsap.fromTo(
-			".skill-card",
-			{ opacity: 0, y: 50 },
-			{
-				opacity: 1,
-				y: 0,
-				stagger: 0.2,
-				duration: 0.8,
-				ease: "power2.out",
-				scrollTrigger: {
-					trigger: ".skill",
-					start: "top 80%",
-				},
+		let animationFrame;
+		let lastTime;
+
+		const loop = (time) => {
+			if (isHovered) {
+				lastTime = time;
+				animationFrame = requestAnimationFrame(loop);
+				return;
 			}
-		);
-	}, []);
 
-	const renderCards = (skills) =>
-		skills.map((skill, idx) => (
-			<div
-				key={idx}
-				className="skill-card relative p-6 rounded-xl border border-cyan-500 bg-[#121212] shadow-md hover:shadow-cyan-500/50 hover:scale-[1.03] transition-transform duration-300"
-				style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}
-			>
-				<div className="flex items-center gap-4 mb-4">
-					<div className="w-16 h-16 bg-[#0d0d0d] rounded-lg flex items-center justify-center shadow-md border border-cyan-700">
-						<img
-							src={skill.image}
-							alt={skill.title}
-							className="w-12 h-12  transition duration-300"
-						/>
-					</div>
-					<h2 className="text-xl font-bold text-cyan-400">{skill.title}</h2>
-				</div>
+			if (lastTime !== undefined) {
+				const delta = (time - lastTime) / 1000;
+				let newX = position - speed * delta;
+				if (newX <= -totalWidth) {
+					newX = 0;
+				}
+				setPosition(newX);
+				controls.set({ x: newX });
+				lastTime = time;
+			} else {
+				lastTime = time;
+			}
 
-				<p className="text-gray-300 text-sm mb-4">{skill.desc}</p>
+			animationFrame = requestAnimationFrame(loop);
+		};
+		
+		
 
-				<div className="flex flex-wrap gap-2">
-					{skill.tags.map((tag, i) => (
-						<span
-							key={i}
-							className="px-3 py-1 text-xs bg-cyan-900 text-cyan-300 rounded-full font-medium tracking-tight border border-cyan-700 shadow-sm"
-						>
-							{tag}
-						</span>
-					))}
-				</div>
-			</div>
-		));
-	
-	
+		animationFrame = requestAnimationFrame(loop);
+
+		return () => cancelAnimationFrame(animationFrame);
+	}, [isHovered, position, controls]);
 
 	return (
-		<div
-			ref={skillRef}
-			className="min-h-screen w-full  text-white py-12 px-4 "
-			id="skillsPage"
+		<section
+			id="skills"
+			className="relative z-40 min-h-[40vh] border-t my-12 lg:my-24 border-[#25213b]"
 		>
-			<h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center mb-16  font-orbitron text-cyan-400">
-				🎮 My Skill Inventory
-			</h1>
+			<div
+				className="absolute inset-0 backdrop-blur-sm"
+				style={{
+					maskImage:
+						"linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.45) 85%, rgba(0,0,0,0) 100%)",
+					WebkitMaskImage:
+						"linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.45) 85%,rgba(0,0,0,0) 100%)",
+				}}
+			></div>
 
-			{/* Web Dev Skills */}
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto skill">
-				{renderCards(skillsData)}
+			<div className="w-[200px] h-[100px] bg-violet-100 rounded-full absolute top-6 left-[36%] translate-x-1/2 filter blur-3xl opacity-10"></div>
+
+			<div className="relative z-10">
+				<div className="flex justify-center -translate-y-[1px]">
+					<div className="w-3/4">
+						<div className="h-[1px] bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent w-full"></div>
+					</div>
+				</div>
+
+				<div className="flex justify-center my-5 lg:py-8">
+					<div className="flex items-center">
+						<span className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent"></span>
+						<span className="bg-[#0d1224] border border-[#16f2b3]/50 w-fit text-white p-2 px-6 font-mono text-xl md:text-2xl rounded-md mx-4">
+							Skills
+						</span>
+						<span className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent"></span>
+					</div>
+				</div>
+
+				<div className="w-full my-8 overflow-hidden">
+					<motion.div
+						className="flex"
+						ref={marqueeRef}
+						animate={controls}
+						onMouseEnter={() => setIsHovered(true)}
+						onMouseLeave={() => setIsHovered(false)}
+					>
+						{[...skills, ...skills].map((skill, index) => (
+							<SkillCard
+								key={`${skill.name}-${index}`}
+								skill={skill}
+								onHover={() => setIsHovered(true)}
+								onLeave={() => setIsHovered(false)}
+							/>
+						))}
+					</motion.div>
+				</div>
 			</div>
-
-			
-		</div>
+		</section>
 	);
 };
+
+const SkillCard = ({ skill, onHover, onLeave }) => (
+	<div
+		className="flex-shrink-0 w-36 sm:w-40 flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
+		onMouseEnter={onHover}
+		onMouseLeave={onLeave}
+	>
+		<div className="h-full w-full rounded-lg border border-[#1f223c] bg-[#11152c] group-hover:border-[#16f2b3] transition-all duration-500">
+			<div className="flex -translate-y-[1px] justify-center">
+				<div className="w-3/4">
+					<div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent"></div>
+				</div>
+			</div>
+			<div className="flex flex-col items-center justify-center gap-3 p-4 text-center">
+				<div className="h-10 w-10 flex items-center justify-center">
+					<img
+						src={`/${skill.icon}`}
+						alt={skill.name}
+						className="h-full w-full object-contain"
+					/>
+				</div>
+				<p className="text-white text-sm md:text-base font-montserrat text-center break-words w-full px-1 leading-tight">
+					{skill.name}
+				</p>
+			</div>
+		</div>
+	</div>
+);
 
 export default Skills;

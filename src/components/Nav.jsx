@@ -1,108 +1,150 @@
-import React, { forwardRef, useState } from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedinIn, FaTwitter, FaFileDownload, FaInstagram } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 
-const Nav = forwardRef((prop, ref) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Nav = () => {
+	const navItems = [
+		{ name: "Home", href: "#home" },
+		{ name: "About", href: "#about" },
+		{ name: "Projects", href: "#project" },
+		{ name: "Skills", href: "#skills" },
+		{ name: "Contact", href: "#contact" },
+	];
+
+	const socialLinks = [
+		{
+			icon: <FaGithub />,
+			href: "https://github.com/Prince-Saxena",
+			color: "hover:text-gray-400",
+		},
+		{
+			icon: <FaLinkedinIn />,
+			href: "https://www.linkedin.com/in/prince-saxena1/",
+			color: "hover:text-blue-500",
+		},
+		{
+			icon: <FaInstagram />,
+			href: "https://www.instagram.com/blooming_techie/",
+			color: "hover:text-blue-400",
+		},
+		{
+			icon: <HiOutlineMail />,
+			href: "mailto:princesaxena202020@gmail.com",
+			color: "hover:text-red-400",
+		},
+		{
+			icon: <FaFileDownload />,
+			href: "https://drive.google.com/file/d/1CUPNKa6nxD3zp0JUb3vUzNBjPjOTw3Sr/view?usp=sharing",
+			color: "hover:text-green-400",
+		},
+	];
 
 	const handleScroll = (e, targetId) => {
 		e.preventDefault();
-		setIsMenuOpen(false); // Close mobile menu when a link is clicked
-		document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-	};
-
-	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
+		document.getElementById(targetId.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
 	};
 
 	return (
-		<nav
-			ref={ref}
-			className="font-orbitron fixed bg-transparent w-full backdrop-blur-lg z-50 border-b border-white/20 shadow-lg"
+		<motion.nav
+			initial={{ y: -100 }}
+			animate={{ y: 0 }}
+			transition={{ duration: 0.5 }}
+			className="fixed w-full z-50 top-0 backdrop-blur-md bg-[#0d1224]/80 border-b border-[#1b2c68a0]"
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex items-center justify-between h-16 md:h-20">
-					{/* Logo */}
-					<div className="flex-shrink-0">
-						<h1 className="text-xl md:text-2xl pl-3 font-cyberbrush font-bold tracking-wide bg-gradient-to-r from-white to-[#458] text-transparent bg-clip-text hover:scale-105 transition-transform duration-300">
-							PRINCE SAXENA
-						</h1>
+				<div className="flex items-center justify-between h-16">
+					{/* Logo/Brand */}
+					<motion.div
+						whilehover={{ scale: 1.05 }}
+						className="flex-shrink-0 flex items-center"
+					>
+						<a
+							href="#home"
+							onClick={(e) => handleScroll(e, "#home")}
+							whilehover={{ scale: 1.1 }}
+							whiletap={{ scale: 0.9 }}
+							className="text-white font-bold text-xl"
+						>
+							<span className="text-pink-500">{"<"}</span>
+							Prince
+							<span className="text-[#16f2b3]">Saxena</span>
+							<span className="text-pink-500">{"/>"}</span>
+						</a>
+					</motion.div>
+
+					{/* Desktop Navigation */}
+					<div className="hidden md:block">
+						<div className="ml-10 flex items-center space-x-8">
+							{navItems.map((item) => (
+								<motion.a
+									key={item.name}
+									href={item.href}
+									onClick={(e) => handleScroll(e, item.href)}
+									whilehover={{ scale: 1.1 }}
+									whiletap={{ scale: 0.9 }}
+									className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium relative group"
+								>
+									{item.name}
+									<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+								</motion.a>
+							))}
+						</div>
 					</div>
 
-					{/* Desktop Navigation Links */}
-					<div className="hidden md:flex space-x-6 lg:space-x-10">
-						{["Home", "Projects", "Skills", "Contact"].map((item) => (
-							<a
-								key={item}
-								href={`#${item.toLowerCase()}Page`}
-								onClick={(e) => handleScroll(e, `${item.toLowerCase()}Page`)}
-								className="relative px-2 py-1 text-sm lg:text-lg text-cyan-200 hover:text-white font-medium tracking-widest transition-all duration-300 ease-in-out group"
+					{/* Social Icons */}
+					<div className="hidden md:flex items-center space-x-4">
+						{socialLinks.map((link, index) => (
+							<motion.a
+								key={index}
+								href={link.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								whilehover={{ y: -3 }}
+								whiletap={{ scale: 0.9 }}
+								className={`text-gray-400 ${link.color} transition-colors duration-300 p-2 rounded-full`}
 							>
-								{item}
-								<span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-violet-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
-								<span className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-200/40 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out delay-100 origin-left"></span>
-							</a>
+								{link.icon}
+							</motion.a>
 						))}
 					</div>
 
-					{/* Mobile Menu Button */}
+					{/* Mobile menu button */}
 					<div className="md:hidden flex items-center">
-						<button
-							onClick={toggleMenu}
-							className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-							aria-expanded="false"
-						>
-							<span className="sr-only">Open main menu</span>
-							{!isMenuOpen ? (
-								<svg
-									className="block h-6 w-6"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										d="M4 6h16M4 12h16M4 18h16"
-									/>
-								</svg>
-							) : (
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									fill="none"
-									stroke="currentColor"
-									className="feather feather-x"
-								>
-									<line x1="18" y1="6" x2="6" y2="18" />
-									<line x1="6" y1="6" x2="18" y2="18" />
-								</svg>
-							)}
+						<button className="text-gray-300 hover:text-white focus:outline-none">
+							<svg
+								className="h-6 w-6"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							</svg>
 						</button>
 					</div>
 				</div>
 			</div>
 
-			{/* Mobile Menu */}
-			<div
-				className={`md:hidden ${
-					isMenuOpen ? "block" : "hidden"
-				} bg-transperant backdrop-blur-lg`}
-			>
+			{/* Mobile Navigation (hidden by default) */}
+			<div className="md:hidden hidden">
 				<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-					{["Home", "Projects", "Skills", "Contact"].map((item) => (
+					{navItems.map((item) => (
 						<a
-							key={item}
-							href={`#${item.toLowerCase()}Page`}
-							onClick={(e) => handleScroll(e, `${item.toLowerCase()}Page`)}
-							className="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-md transition-all duration-300 border-b border-white/10"
+							key={item.name}
+							href={item.href}
+							className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 						>
-							{item}
+							{item.name}
 						</a>
 					))}
 				</div>
 			</div>
-		</nav>
+		</motion.nav>
 	);
-});
+};
 
 export default Nav;
