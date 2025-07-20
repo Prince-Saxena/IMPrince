@@ -34,7 +34,7 @@ const Projects = () => {
 	];
 
 	return (
-		<section id="projects" className="pb-12 px-4 sm:px-6 lg:px-8 text-white">
+		<section id="project" className="pb-12 px-4 sm:px-6 lg:px-8 text-white">
 			<div className="max-w-7xl mx-auto">
 				{/* Section Header */}
 				<div className="flex justify-start mb-12 lg:mb-16 relative">
