@@ -34,7 +34,7 @@ const Nav = () => {
 		},
 		{
 			icon: <FaFileDownload />,
-			href: "https://drive.google.com/file/d/1CUPNKa6nxD3zp0JUb3vUzNBjPjOTw3Sr/view?usp=sharing",
+			href: "https://drive.google.com/file/d/1GIbLiF317ksOmV2p0o2dMJiJ2gpPO4hx/view?usp=sharing",
 			color: "hover:text-green-400",
 		},
 	];

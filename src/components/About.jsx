@@ -13,7 +13,6 @@ function About({ layout = "center" }) {
 
 	return (
 		<section id="about" className="relative h-fit text-white overflow-hidden pb-8">
-
 			{/* Content Container */}
 			<div className="relative max-w-7xl mx-auto px-6 sm:px-8 py-4 md:py-8 h-full flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
 				{/* Image */}
@@ -26,7 +25,6 @@ function About({ layout = "center" }) {
 				</div>
 
 				<div className="w-full max-w-4xl mx-auto space-y-6 md:space-y-8 px-4">
-					
 					<div className="flex justify-center -mt-6">
 						<div className="flex items-center">
 							<span className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-[#16f2b3] to-transparent"></span>
@@ -50,46 +48,48 @@ function About({ layout = "center" }) {
 						</div>
 						<div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-6">
 							<p className="text-gray-300 text-base md:text-lg leading-relaxed font-mono font-light text-justify">
-								I am a final-year B.Tech student with a passion for{" "}
+								I am a B.Tech Computer Science student with a strong interest in
 								<span className="text-[#16f2b3] font-medium">
-									Natural Language Processing
+									{" "}
+									frontend web development
 								</span>
-								,{" "}
-								<span className="text-[#16f2b3] font-medium">
-									backend development
-								</span>
-								, and{" "}
-								<span className="text-[#16f2b3] font-medium">generative AI</span>.
-								Over the course of my academic journey, I have gained{" "}
+								. I enjoy building
 								<span className="text-pink-500 font-medium">
-									hands-on experience
-								</span>{" "}
-								in building{" "}
-								<span className="text-[#16f2b3] font-medium">
-									advanced chatbot solutions
-								</span>{" "}
-								and leveraging{" "}
-								<span className="text-[#16f2b3] font-medium">data science</span> and{" "}
-								<span className="text-[#16f2b3] font-medium">machine learning</span>{" "}
-								techniques to solve{" "}
-								<span className="text-pink-500 font-medium">
-									complex challenges
+									{" "}
+									responsive websites
 								</span>
-								. I am driven by the desire to{" "}
-								<span className="text-pink-500 font-medium">push boundaries</span>{" "}
-								of what{" "}
-								<span className="text-[#16f2b3] font-medium">technology</span> can
-								achieve and am actively seeking{" "}
-								<span className="text-pink-500 font-medium">opportunities</span>{" "}
-								where I can apply my skills to solve{" "}
-								<span className="text-pink-500 font-medium">
-									real-world problems
-								</span>{" "}
-								with{" "}
+								, modern
+								<span className="text-[#16f2b3] font-medium"> landing pages</span>,
+								and clean
 								<span className="text-[#16f2b3] font-medium">
-									AI-powered solutions
-								</span>
-								.
+									{" "}
+									UI interfaces
+								</span>{" "}
+								using
+								<span className="text-[#16f2b3] font-medium"> HTML</span>,
+								<span className="text-[#16f2b3] font-medium"> CSS</span>,
+								<span className="text-[#16f2b3] font-medium"> JavaScript</span>,
+								<span className="text-[#16f2b3] font-medium"> React</span>, and
+								<span className="text-[#16f2b3] font-medium"> Tailwind CSS</span>.
+								During my learning journey, I have built several projects including
+								<span className="text-pink-500 font-medium"> product websites</span>
+								,<span className="text-pink-500 font-medium"> landing pages</span>,
+								and
+								<span className="text-pink-500 font-medium"> web applications</span>
+								. I also have basic knowledge of the
+								<span className="text-[#16f2b3] font-medium"> MERN stack</span> and
+								enjoy learning how to build complete web applications. I am
+								passionate about creating
+								<span className="text-pink-500 font-medium">
+									{" "}
+									user friendly
+								</span>{" "}
+								and
+								<span className="text-pink-500 font-medium">
+									{" "}
+									visually appealing
+								</span>{" "}
+								web experiences and continuously improving my development skills.
 							</p>
 						</div>
 					</div>

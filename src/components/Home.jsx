@@ -29,11 +29,11 @@ function Home() {
 				</div>
 				<ScrollToTopButton />
 				<About />
-				<Experience />
+				{/* <Experience /> */}
 				<Skills />
 				<Project />
 				<Certificate />
-				<RoadMap />
+				{/* <RoadMap /> */}
 				<Contact />
 				{/* <Blogs />
 				<Footer /> */}

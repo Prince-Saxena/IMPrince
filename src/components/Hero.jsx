@@ -11,17 +11,15 @@ function Hero() {
 	};
 	const coder = {
 		name: "PRINCE SAXENA",
-		title: "Aspiring Data Analyst || AI/ML Enthusiast",
+		title: "Frontend Web Developer",
 		location: "Aligarh, Uttar Pradesh, India",
 		education: "B.Tech in Computer Science & Engineering (Pursuing)",
-		focus: `Data Analytics || AI/ML`,
+		focus: "Frontend Development || MERN Stack",
 		projects: [
-			"Sales Data Dashboard",
-			"Customer Churn Prediction",
-			"COVID-19 Data Analysis",
-			"IPL Match Insights",
-			"Text Sentiment Analyzer",
-			"Chatbot using LangChain",
+			"Rocket - Product Showcase Website",
+			"Premier - Fashion Model Website",
+			"Francesco - Portfolio Landing Page",
+			"Student Work Tracker (Task Manager)",
 		],
 		hireable: true,
 	};
@@ -33,9 +31,8 @@ function Hero() {
 					{/* Text Content - Takes more space on larger screens */}
 					<div className="w-full md:w-1/3 lg:w-5/12 order-2 md:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
 						<h1 className="text-3xl my-12 font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-							Hello, <br />
-							I'm <span className="text-pink-500">PRINCE SAXENA </span>, Aspiring
-							<span className="text-[#16f2b3]"> Data Analyst</span>
+							I'm <span className="text-pink-500">PRINCE SAXENA </span>, Frontend
+							<span className="text-[#16f2b3]"> Web Developer</span>
 						</h1>
 
 						{/* <div className="my-12 h-3/5 flex items-center gap-5">
@@ -107,7 +104,7 @@ function Hero() {
 							<motion.a
 								target="_blank"
 								rel="noopener noreferrer"
-								href="https://drive.google.com/file/d/1CUPNKa6nxD3zp0JUb3vUzNBjPjOTw3Sr/view?usp=sharing"
+								href="https://drive.google.com/file/d/1GIbLiF317ksOmV2p0o2dMJiJ2gpPO4hx/view?usp=sharing"
 								className="relative overflow-hidden rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-xs md:text-sm font-medium uppercase tracking-wider text-white"
 								whilehover={{ scale: 1.05 }}
 								whiletap={{ scale: 0.95 }}

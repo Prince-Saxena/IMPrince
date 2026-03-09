@@ -5,33 +5,68 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const Projects = () => {
 	const projects = [
 		{
-			title: "Taxi Trip Data Analysis",
+			title: "Rocket – Product Showcase Website",
 			description:
-				"Performed end-to-end analysis on NYC taxi trip data by cleaning, engineering features, and visualizing patterns to identify statistically significant differences in payment-based passenger behavior.",
-			technologies: ["Python", "Pandas", "Seaborn", "SciPy", "Statsmodels"],
-			githubLink: "https://github.com/Prince-Saxena/Taxi-Trip-Data-Analysis",
-			// Add if available: githubLink: "#", liveLink: "#"
+				"A modern product showcase website designed for an audio accessories brand with clean UI layout and responsive product sections.",
+			technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+			githubLink: "https://github.com/Prince-Saxena",
+			liveLink: "#",
 		},
 		{
-			title: "Movie Recommendation System",
+			title: "Premier – Fashion Model Website",
 			description:
-				"Developed a content-based recommender using TF-IDF and cosine similarity, deployed with an interactive Streamlit interface.",
-			technologies: ["Python", "Pandas", "scikit-learn", "Streamlit"],
-			githubLink: "https://github.com/Prince-Saxena/Movie-Suggestion-Streamlit-App",
+				"A fashion agency styled website inspired by editorial layouts featuring model showcase sections and modern grid design.",
+			technologies: ["HTML", "CSS", "JavaScript"],
+			githubLink: "https://github.com/Prince-Saxena",
+			liveLink: "#",
 		},
 		{
-			title: "Vendor Sales Performance Analysis",
+			title: "Francesco – Portfolio Landing Page",
 			description:
-				"Analyzed real-world vendor sales data and built interactive Power BI dashboards to visualize KPIs and uncover actionable sales insights.",
-			technologies: ["Power BI", "Excel", "Python"],
+				"A minimal landing page for a photographer portfolio with large hero typography and modern UI layout.",
+			technologies: ["HTML", "CSS", "JavaScript"],
+			githubLink: "https://github.com/Prince-Saxena",
+			liveLink: "#",
 		},
 		{
-			title: "Sentiment Analysis on Product Reviews",
+			title: "Student Work Tracker – Task Manager",
 			description:
-				"Built a machine learning model to classify product reviews into positive/negative categories using NLP techniques and Logistic Regression.",
-			technologies: ["Python", "NLP", "scikit-learn", "NLTK"],
+				"A web application that allows users to add, manage and track academic tasks with search and status tracking features.",
+			technologies: ["HTML", "CSS", "JavaScript"],
+			githubLink: "https://github.com/Prince-Saxena",
+			liveLink: "#",
 		},
 	];
+
+	// const projects = [
+	// 	{
+	// 		title: "Taxi Trip Data Analysis",
+	// 		description:
+	// 			"Performed end-to-end analysis on NYC taxi trip data by cleaning, engineering features, and visualizing patterns to identify statistically significant differences in payment-based passenger behavior.",
+	// 		technologies: ["Python", "Pandas", "Seaborn", "SciPy", "Statsmodels"],
+	// 		githubLink: "https://github.com/Prince-Saxena/Taxi-Trip-Data-Analysis",
+	// 		// Add if available: githubLink: "#", liveLink: "#"
+	// 	},
+	// 	{
+	// 		title: "Movie Recommendation System",
+	// 		description:
+	// 			"Developed a content-based recommender using TF-IDF and cosine similarity, deployed with an interactive Streamlit interface.",
+	// 		technologies: ["Python", "Pandas", "scikit-learn", "Streamlit"],
+	// 		githubLink: "https://github.com/Prince-Saxena/Movie-Suggestion-Streamlit-App",
+	// 	},
+	// 	{
+	// 		title: "Vendor Sales Performance Analysis",
+	// 		description:
+	// 			"Analyzed real-world vendor sales data and built interactive Power BI dashboards to visualize KPIs and uncover actionable sales insights.",
+	// 		technologies: ["Power BI", "Excel", "Python"],
+	// 	},
+	// 	{
+	// 		title: "Sentiment Analysis on Product Reviews",
+	// 		description:
+	// 			"Built a machine learning model to classify product reviews into positive/negative categories using NLP techniques and Logistic Regression.",
+	// 		technologies: ["Python", "NLP", "scikit-learn", "NLTK"],
+	// 	},
+	// ];
 
 	return (
 		<section id="project" className="pb-12 px-4 sm:px-6 lg:px-8 text-white">
