@@ -9,32 +9,40 @@ const Projects = () => {
 			description:
 				"A modern product showcase website designed for an audio accessories brand with clean UI layout and responsive product sections.",
 			technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
-			githubLink: "https://github.com/Prince-Saxena",
-			liveLink: "#",
+			githubLink: "https://github.com/Prince-Saxena/Frontend-Projects",
+			liveLink: "https://github.com/Prince-Saxena/Frontend-Projects",
 		},
 		{
 			title: "Premier – Fashion Model Website",
 			description:
 				"A fashion agency styled website inspired by editorial layouts featuring model showcase sections and modern grid design.",
 			technologies: ["HTML", "CSS", "JavaScript"],
-			githubLink: "https://github.com/Prince-Saxena",
-			liveLink: "#",
+			githubLink: "https://github.com/Prince-Saxena/Frontend-Projects",
+			liveLink: "https://github.com/Prince-Saxena/Frontend-Projects",
 		},
 		{
-			title: "Francesco – Portfolio Landing Page",
+			title: "CRM Web Application",
 			description:
-				"A minimal landing page for a photographer portfolio with large hero typography and modern UI layout.",
-			technologies: ["HTML", "CSS", "JavaScript"],
-			githubLink: "https://github.com/Prince-Saxena",
-			liveLink: "#",
+				"A full-stack CRM web application for managing leads, dealers, and orders with role-based dashboards, JWT authentication, analytics, and real-time business insights.",
+			technologies: [
+				"React.js",
+				"Tailwind CSS",
+				"Node.js",
+				"Express.js",
+				"MongoDB",
+				"JWT",
+				"Recharts",
+			],
+			githubLink: "https://github.com/Prince-Saxena/CRM",
+			liveLink: "https://github.com/Prince-Saxena/CRM",
 		},
 		{
 			title: "Student Work Tracker – Task Manager",
 			description:
 				"A web application that allows users to add, manage and track academic tasks with search and status tracking features.",
 			technologies: ["HTML", "CSS", "JavaScript"],
-			githubLink: "https://github.com/Prince-Saxena",
-			liveLink: "#",
+			githubLink: "https://github.com/Prince-Saxena/Task-Tracker",
+			liveLink: "https://github.com/Prince-Saxena/Task-Tracker",
 		},
 	];
 
